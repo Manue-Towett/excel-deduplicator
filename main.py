@@ -112,6 +112,16 @@ class Deduplicator:
         elif re.search(r".csv$", file_path, re.I):
             return pd.read_csv(file_path)
     
+    @staticmethod
+    def __remove_whitespace(df: pd.DataFrame) -> None:
+        df[COLUMNS[-1]] = df[COLUMNS[-1]].apply(
+            lambda value: str(value).strip()
+        )
+
+        df[COLUMNS[0]] = df[COLUMNS[0]].apply(
+            lambda value: str(value).strip()
+        )
+    
     def __drop_duplicates(self, df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:
         df1 = df1.dropna(subset=[COLUMNS[0], COLUMNS[-1]]).astype({COLUMNS[-1]: str})
 
@@ -137,6 +147,8 @@ class Deduplicator:
             if columns is None: continue
 
             df_old = self.__rename_columns(df_old, columns)
+
+            self.__remove_whitespace(df_old)
 
             df = self.__drop_duplicates(df, df_old)
 
@@ -171,6 +183,8 @@ class Deduplicator:
             if columns is None: continue
 
             df = self.__rename_columns(df, columns)
+
+            # self.__remove_whitespace(df)
 
             oldfiles = self.__get_matching_files(file, name)
 
