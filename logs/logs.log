@@ -1,0 +1,56 @@
+Deduplicator:INFO - *****Excel Deduplicator started*****
+Deduplicator:INFO - 9 old files found
+Deduplicator:INFO - 8 new files found
+Deduplicator:INFO - Processing file: www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - 1 matches found for www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - Comparing to www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - Domain: www.anntaylor.com || Products remaining: 0
+Deduplicator:INFO - No unique products from file: www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - Processing file: Walgreens_Beauty_10.31.23.csv
+Deduplicator:INFO - 1 matches found for Walgreens_Beauty_10.31.23.csv
+Deduplicator:INFO - Comparing to Walgreens_Beauty_10.31.23.csv
+Deduplicator:INFO - Domain: Walgreens || Products remaining: 0
+Deduplicator:INFO - No unique products from file: Walgreens_Beauty_10.31.23.csv
+Deduplicator:INFO - Processing file: chewy_Dog Treat_10.31.23.csv
+Deduplicator:INFO - 2 matches found for chewy_Dog Treat_10.31.23.csv
+Deduplicator:INFO - Comparing to chewy_Dog Treat_10.31.23.csv
+Deduplicator:INFO - Domain: Treat || Products remaining: 46
+Deduplicator:INFO - Comparing to Chewy_Cat Treat_10.31.23.xlsx
+Deduplicator:INFO - Domain: Treat || Products remaining: 46
+Deduplicator:INFO - 46 products saved to chewy_Dog Treat_10.31.23_filtered.csv
+Deduplicator:INFO - Processing file: anntaylor.com_clothing_11.01.2023.csv
+Deduplicator:INFO - 3 matches found for anntaylor.com_clothing_11.01.2023.csv
+Deduplicator:INFO - Comparing to www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 642
+Deduplicator:INFO - Comparing to anntaylor.com_clothing_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 17
+Deduplicator:INFO - Comparing to anntaylor.com_sale_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 17
+Deduplicator:INFO - 17 products saved to anntaylor.com_clothing_11.01.2023_filtered.csv
+Deduplicator:INFO - Processing file: Ferebe_Beauty Collection_10.31.23.csv
+Deduplicator:INFO - 1 matches found for Ferebe_Beauty Collection_10.31.23.csv
+Deduplicator:INFO - Comparing to Ferebe_Beauty Collection_10.31.23.csv
+Deduplicator:INFO - Domain: Collection || Products remaining: 88
+Deduplicator:INFO - 88 products saved to Ferebe_Beauty Collection_10.31.23_filtered.csv
+Deduplicator:INFO - Processing file: plumerstock example.xlsx
+Deduplicator:INFO - 1 matches found for plumerstock example.xlsx
+Deduplicator:INFO - Comparing to plumerstock example.xlsx
+Deduplicator:INFO - Domain: example || Products remaining: 0
+Deduplicator:INFO - No unique products from file: plumerstock example.xlsx
+Deduplicator:INFO - Processing file: anntaylor.com_sale_11.01.2023.csv
+Deduplicator:INFO - 3 matches found for anntaylor.com_sale_11.01.2023.csv
+Deduplicator:INFO - Comparing to www.anntaylor.com_new-arrivals_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 353
+Deduplicator:INFO - Comparing to anntaylor.com_clothing_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 351
+Deduplicator:INFO - Comparing to anntaylor.com_sale_11.01.2023.csv
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 92
+Deduplicator:INFO - 92 products saved to anntaylor.com_sale_11.01.2023_filtered.csv
+Deduplicator:INFO - Processing file: Chewy_Cat Treat_10.31.23.xlsx
+Deduplicator:INFO - 2 matches found for Chewy_Cat Treat_10.31.23.xlsx
+Deduplicator:INFO - Comparing to chewy_Dog Treat_10.31.23.csv
+Deduplicator:INFO - Domain: Treat || Products remaining: 13
+Deduplicator:INFO - Comparing to Chewy_Cat Treat_10.31.23.xlsx
+Deduplicator:INFO - Domain: Treat || Products remaining: 4
+Deduplicator:INFO - 4 products saved to Chewy_Cat Treat_10.31.23_filtered.csv
+Deduplicator:INFO - Done filtering files.
