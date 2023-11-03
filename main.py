@@ -122,6 +122,27 @@ class Deduplicator:
             lambda value: str(value).strip()
         )
     
+    @staticmethod
+    def __format_price(df: pd.DataFrame) -> pd.DataFrame:
+        df.dropna(subset=COLUMNS[-1], inplace=True)
+
+        df = df.astype({COLUMNS[-1]: str})
+
+        df = df.loc[~df[COLUMNS[-1]].str.contains("-")]
+
+        df = df.loc[df[COLUMNS[-1]].str.contains(r"\$*\d+\.*\d*(?![\-])", regex=True)]
+
+        df.loc[df[COLUMNS[-1]].str.contains(r"\${1,1}\s*", regex=True), 
+               COLUMNS[-1]] = df[COLUMNS[-1]].apply(
+            lambda value: str(value).strip("$").strip().replace(",", "").replace(" ", "")
+        )
+
+        df[COLUMNS[-1]] = df[COLUMNS[-1]].astype(float)
+
+        df[COLUMNS[-1]] =  df[COLUMNS[-1]].map("${:,.2f}".format)
+
+        return df
+    
     def __drop_duplicates(self, df1: pd.DataFrame, df2: pd.DataFrame) -> pd.DataFrame:
         df1 = df1.dropna(subset=[COLUMNS[0], COLUMNS[-1]]).astype({COLUMNS[-1]: str})
 
@@ -149,6 +170,8 @@ class Deduplicator:
             df_old = self.__rename_columns(df_old, columns)
 
             self.__remove_whitespace(df_old)
+
+            df_old = self.__format_price(df_old)
 
             df = self.__drop_duplicates(df, df_old)
 
@@ -184,7 +207,9 @@ class Deduplicator:
 
             df = self.__rename_columns(df, columns)
 
-            # self.__remove_whitespace(df)
+            self.__remove_whitespace(df)
+
+            df = self.__format_price(df)
 
             oldfiles = self.__get_matching_files(file, name)
 

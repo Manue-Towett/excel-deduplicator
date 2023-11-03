@@ -1,19 +1,29 @@
 Deduplicator:INFO - *****Excel Deduplicator started*****
-Deduplicator:INFO - 2 old files found
-Deduplicator:INFO - 3 new files found
+Deduplicator:INFO - 4 old files found
+Deduplicator:INFO - 5 new files found
 Deduplicator:INFO - Processing file: cherrybook.com.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv
 Deduplicator:INFO - Domain: cherrybook.com || Products remaining: 9
 Deduplicator:INFO - 9 products saved to cherrybook.com_filtered.csv
+Deduplicator:INFO - Processing file: anntaylor.com_clothing_11.01.2023_new.csv
+Deduplicator:INFO - 1 matches found for anntaylor.com_clothing_11.01.2023_new.csv
+Deduplicator:INFO - Comparing to anntaylor.com_adfa_old.xlsx
+Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 590
+Deduplicator:INFO - 590 products saved to anntaylor.com_clothing_11.01.2023_new_filtered.csv
 Deduplicator:INFO - Processing file: pyramydair_2.csv
 Deduplicator:INFO - 1 matches found for pyramydair_2.csv
 Deduplicator:INFO - Comparing to pyramydair_action-sports_03.11.2023.csv
-Deduplicator:INFO - Domain: pyramydair || Products remaining: 423
-Deduplicator:INFO - 423 products saved to pyramydair_2_filtered.csv
+Deduplicator:INFO - Domain: pyramydair || Products remaining: 422
+Deduplicator:INFO - 422 products saved to pyramydair_2_filtered.csv
 Deduplicator:INFO - Processing file: cherrybook.com_cat_1.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com_cat_1.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv
 Deduplicator:INFO - Domain: cherrybook.com || Products remaining: 47
 Deduplicator:INFO - 47 products saved to cherrybook.com_cat_1_filtered.csv
+Deduplicator:INFO - Processing file: dicks.com_new.xlsx
+Deduplicator:INFO - 1 matches found for dicks.com_new.xlsx
+Deduplicator:INFO - Comparing to dicks.com_1_old.xlsx
+Deduplicator:INFO - Domain: dicks.com || Products remaining: 0
+Deduplicator:INFO - No unique products from file: dicks.com_new.xlsx
 Deduplicator:INFO - Done filtering files.
