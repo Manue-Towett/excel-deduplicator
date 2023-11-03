@@ -134,6 +134,8 @@ class Deduplicator:
 
             columns = self.__get_columns(df_old.columns.values)
 
+            if columns is None: continue
+
             df_old = self.__rename_columns(df_old, columns)
 
             df = self.__drop_duplicates(df, df_old)
@@ -165,6 +167,8 @@ class Deduplicator:
             if df is None: continue
 
             columns = self.__get_columns(df.columns.values)
+
+            if columns is None: continue
 
             df = self.__rename_columns(df, columns)
 
