@@ -2,6 +2,7 @@ import os
 import re
 import dataclasses
 import configparser
+from datetime import date
 from typing import Optional
 
 import pandas as pd
@@ -15,9 +16,13 @@ with open("./settings/settings.ini", "r") as file:
 
 OUTPUT_PATH = config.get("paths", "output_path")
 
+COMBINED_PATH = config.get("paths", "combined_path")
+
 INPUT_NEW_PATH = config.get("paths", "new_excel_files_path")
 
 INPUT_OLD_PATH = config.get("paths", "old_excel_files_path")
+
+COMBINED_LAST_INDEX = int(config.get("combined", "max_rows"))
 
 COLUMNS = ["Title", "Url", "Image", "Price"]
 
@@ -51,6 +56,7 @@ class Deduplicator:
         self.logger.info("*****Excel Deduplicator started*****")
 
         self.file_stats: list[FileStats] = []
+        self.dataframes: list[pd.DataFrame] = []
 
         self.old_files = self.__get_files(INPUT_OLD_PATH)
         self.new_files = self.__get_files(INPUT_NEW_PATH, "new")
@@ -220,10 +226,22 @@ class Deduplicator:
             if len(df):
                 self.__save_to_csv(df, filename=name)   
 
+                self.dataframes.append(df)
+
             else: 
                 self.logger.info("No unique products from file: {}".format(name))
 
             self.file_stats.append(stats)  
+        
+        combined_df = pd.concat(self.dataframes).iloc[:COMBINED_LAST_INDEX]
+
+        dates_ = str(date.today()).split("-")
+
+        _date = f"{'.'.join(dates_[-2:])}.{dates_[0][-2:]}"
+
+        combined_name = f'{COMBINED_PATH}{"combined_results_{}.csv".format(_date)}'
+
+        combined_df.to_csv(combined_name, index=False)
 
         file_stats = [dataclasses.asdict(stats) for stats in self.file_stats] 
 
