@@ -1,6 +1,6 @@
 Deduplicator:INFO - *****Excel Deduplicator started*****
 Deduplicator:INFO - 4 old files found
-Deduplicator:INFO - 5 new files found
+Deduplicator:INFO - 8 new files found
 Deduplicator:INFO - Processing file: cherrybook.com.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv
@@ -16,6 +16,12 @@ Deduplicator:INFO - 1 matches found for pyramydair_2.csv
 Deduplicator:INFO - Comparing to pyramydair_action-sports_03.11.2023.csv
 Deduplicator:INFO - Domain: pyramydair || Products remaining: 422
 Deduplicator:INFO - 422 products saved to pyramydair_2_filtered.csv
+Deduplicator:INFO - Processing file: tiptopshoes.com_collections_girls_24112023.csv
+Deduplicator:INFO - 0 matches found for tiptopshoes.com_collections_girls_24112023.csv
+Deduplicator:INFO - 160 products saved to tiptopshoes.com_collections_girls_24112023_filtered.csv
+Deduplicator:INFO - Processing file: tiptopshoes.com_collections_men_22112023.csv
+Deduplicator:INFO - 0 matches found for tiptopshoes.com_collections_men_22112023.csv
+Deduplicator:INFO - 160 products saved to tiptopshoes.com_collections_men_22112023_filtered.csv
 Deduplicator:INFO - Processing file: cherrybook.com_cat_1.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com_cat_1.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv
@@ -26,4 +32,7 @@ Deduplicator:INFO - 1 matches found for dicks.com_new.xlsx
 Deduplicator:INFO - Comparing to dicks.com_1_old.xlsx
 Deduplicator:INFO - Domain: dicks.com || Products remaining: 0
 Deduplicator:INFO - No unique products from file: dicks.com_new.xlsx
+Deduplicator:INFO - Processing file: tiptopshoes.com_collections_boys_24112023.csv
+Deduplicator:INFO - 0 matches found for tiptopshoes.com_collections_boys_24112023.csv
+Deduplicator:INFO - 160 products saved to tiptopshoes.com_collections_boys_24112023_filtered.csv
 Deduplicator:INFO - Done filtering files.

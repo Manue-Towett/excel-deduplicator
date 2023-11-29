@@ -188,6 +188,16 @@ class Deduplicator:
         
         return df
     
+    def __combine_price_columns(self, df: pd.DataFrame) -> pd.DataFrame:
+        price_columns = [c for c in df.columns.values if re.search("price", c, re.I)]
+
+        if len(price_columns) > 1:
+            df["Price"] = df[price_columns].min(axis=1)
+
+            [df.drop(columns=c, inplace=True) for c in price_columns if c != "Price"]
+        
+        return df
+    
     def __save_to_csv(self, df: pd.DataFrame, filename: str) -> None:
         filename = filename.replace(".xlsx", ".csv").replace(".csv", "_filtered.csv")
 
@@ -206,6 +216,8 @@ class Deduplicator:
             stats = FileStats(file_name=name, products_count_before=len(df))
 
             if df is None: continue
+
+            df = self.__combine_price_columns(df)
 
             columns = self.__get_columns(df.columns.values)
 
