@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import dataclasses
 import configparser
 from datetime import date
@@ -16,13 +17,9 @@ with open("./settings/settings.ini", "r") as file:
 
 OUTPUT_PATH = config.get("paths", "output_path")
 
-COMBINED_PATH = config.get("paths", "combined_path")
-
 INPUT_NEW_PATH = config.get("paths", "new_excel_files_path")
 
 INPUT_OLD_PATH = config.get("paths", "old_excel_files_path")
-
-COMBINED_LAST_INDEX = int(config.get("combined", "max_rows"))
 
 COLUMNS = ["Title", "Url", "Image", "Price"]
 
@@ -34,6 +31,7 @@ class FileStats:
     file_name: str
     products_count_before: int
     products_count_after: Optional[int] = None
+    error: Optional[str] = None
 
 @dataclasses.dataclass
 class SameDomainFiles:
@@ -89,7 +87,7 @@ class Deduplicator:
         return same_domain_files
 
     @staticmethod
-    def __get_columns(columns: list[str]) -> Optional[Columns]: 
+    def __get_columns(columns: list[str], stats: Optional[FileStats]=None) -> Optional[Columns]: 
         for column in columns:
             if re.search(r"title", column, re.I):
                 title = column
@@ -102,7 +100,13 @@ class Deduplicator:
         
         try:
             return Columns(title=title, url=url, image=image, price=price)
-        except: pass
+        except: 
+
+            if stats is None: return
+            
+            _, error, _ = sys.exc_info()
+
+            stats.error = f"missing column! {error}"
 
     @staticmethod
     def __rename_columns(df: pd.DataFrame, columns: Columns) -> pd.DataFrame:
@@ -219,9 +223,14 @@ class Deduplicator:
 
             df = self.__combine_price_columns(df)
 
-            columns = self.__get_columns(df.columns.values)
+            columns = self.__get_columns(df.columns.values, stats)
 
-            if columns is None: continue
+            if columns is None: 
+                stats.products_count_before = None
+
+                self.file_stats.append(file_stats)
+
+                continue
 
             df = self.__rename_columns(df, columns)
 
@@ -243,17 +252,7 @@ class Deduplicator:
             else: 
                 self.logger.info("No unique products from file: {}".format(name))
 
-            self.file_stats.append(stats)  
-        
-        combined_df = pd.concat(self.dataframes).iloc[:COMBINED_LAST_INDEX]
-
-        dates_ = str(date.today()).split("-")
-
-        _date = f"{'.'.join(dates_[-2:])}.{dates_[0][-2:]}"
-
-        combined_name = f'{COMBINED_PATH}{"combined_results_{}.csv".format(_date)}'
-
-        combined_df.to_csv(combined_name, index=False)
+            self.file_stats.append(stats)
 
         file_stats = [dataclasses.asdict(stats) for stats in self.file_stats] 
 
