@@ -1,6 +1,6 @@
 Deduplicator:INFO - *****Excel Deduplicator started*****
-Deduplicator:INFO - 4 old files found
-Deduplicator:INFO - 8 new files found
+Deduplicator:INFO - 8 old files found
+Deduplicator:INFO - 12 new files found
 Deduplicator:INFO - Processing file: cherrybook.com.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv
@@ -11,17 +11,43 @@ Deduplicator:INFO - 1 matches found for anntaylor.com_clothing_11.01.2023_new.cs
 Deduplicator:INFO - Comparing to anntaylor.com_adfa_old.xlsx
 Deduplicator:INFO - Domain: anntaylor.com || Products remaining: 590
 Deduplicator:INFO - 590 products saved to anntaylor.com_clothing_11.01.2023_new_filtered.csv
+Deduplicator:INFO - Processing file: everythingkitchens_kitchen-gadgets-tools-accessories-kitchenware_11.20.23.csv
+Deduplicator:INFO - 2 matches found for everythingkitchens_kitchen-gadgets-tools-accessories-kitchenware_11.20.23.csv
+Deduplicator:INFO - Comparing to everythingkitchens_kitchen-gadgets-tools-accessories-kitchenware_11.20.23.csv
+Deduplicator:INFO - Domain: everythingkitchens || Products remaining: 8
+Deduplicator:INFO - Comparing to everythingkitchens_tabletop_11.20.23.csv
+Deduplicator:INFO - Domain: everythingkitchens || Products remaining: 7
+Deduplicator:INFO - 7 products saved to everythingkitchens_kitchen-gadgets-tools-accessories-kitchenware_11.20.23_filtered.csv
 Deduplicator:INFO - Processing file: pyramydair_2.csv
 Deduplicator:INFO - 1 matches found for pyramydair_2.csv
 Deduplicator:INFO - Comparing to pyramydair_action-sports_03.11.2023.csv
 Deduplicator:INFO - Domain: pyramydair || Products remaining: 422
 Deduplicator:INFO - 422 products saved to pyramydair_2_filtered.csv
+Deduplicator:INFO - Processing file: everythingkitchens_tabletop_11.20.23.csv
+Deduplicator:INFO - 2 matches found for everythingkitchens_tabletop_11.20.23.csv
+Deduplicator:INFO - Comparing to everythingkitchens_kitchen-gadgets-tools-accessories-kitchenware_11.20.23.csv
+Deduplicator:INFO - Domain: everythingkitchens || Products remaining: 3583
+Deduplicator:INFO - Comparing to everythingkitchens_tabletop_11.20.23.csv
+Deduplicator:INFO - Domain: everythingkitchens || Products remaining: 7
+Deduplicator:INFO - 7 products saved to everythingkitchens_tabletop_11.20.23_filtered.csv
 Deduplicator:INFO - Processing file: tiptopshoes.com_collections_girls_24112023.csv
 Deduplicator:INFO - 0 matches found for tiptopshoes.com_collections_girls_24112023.csv
 Deduplicator:INFO - 160 products saved to tiptopshoes.com_collections_girls_24112023_filtered.csv
+Deduplicator:INFO - Processing file: officedepot_breakroom_11.20.23.csv
+Deduplicator:INFO - 2 matches found for officedepot_breakroom_11.20.23.csv
+Deduplicator:INFO - Comparing to officedepot_breakroom_11.20.23.csv
+Deduplicator:INFO - Domain: officedepot || Products remaining: 0
+Deduplicator:INFO - No unique products from file: officedepot_breakroom_11.20.23.csv
 Deduplicator:INFO - Processing file: tiptopshoes.com_collections_men_22112023.csv
 Deduplicator:INFO - 0 matches found for tiptopshoes.com_collections_men_22112023.csv
 Deduplicator:INFO - 160 products saved to tiptopshoes.com_collections_men_22112023_filtered.csv
+Deduplicator:INFO - Processing file: officedepot_cleaning_11.20.23.csv
+Deduplicator:INFO - 2 matches found for officedepot_cleaning_11.20.23.csv
+Deduplicator:INFO - Comparing to officedepot_breakroom_11.20.23.csv
+Deduplicator:INFO - Domain: officedepot || Products remaining: 7762
+Deduplicator:INFO - Comparing to officedepot_cleaning_11.20.23.csv
+Deduplicator:INFO - Domain: officedepot || Products remaining: 0
+Deduplicator:INFO - No unique products from file: officedepot_cleaning_11.20.23.csv
 Deduplicator:INFO - Processing file: cherrybook.com_cat_1.csv
 Deduplicator:INFO - 1 matches found for cherrybook.com_cat_1.csv
 Deduplicator:INFO - Comparing to cherrybook.com_best-sellers_11.2.23.csv

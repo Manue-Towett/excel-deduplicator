@@ -142,7 +142,7 @@ class Deduplicator:
 
         df = df.loc[df[COLUMNS[-1]].str.contains(r"\$*\d+\.*\d*(?![\-])", regex=True)]
 
-        df.loc[df[COLUMNS[-1]].str.contains(r"\${1,1}\s*", regex=True), 
+        df.loc[df[COLUMNS[-1]].str.contains(r"\d*\s*", regex=True), 
                COLUMNS[-1]] = df[COLUMNS[-1]].apply(
             lambda value: str(value).strip("$").strip().replace(",", "").replace(" ", "")
         )
@@ -192,10 +192,23 @@ class Deduplicator:
         
         return df
     
+    @staticmethod
+    def __str_to_float(value: str) -> Optional[float]:
+        if value:
+            if isinstance(value, float): return value
+
+            if isinstance(value, int): return float(value)
+
+            if isinstance(value, str):
+                return float(value.replace(",", "").replace(" ", "").replace("$", "").strip())
+    
     def __combine_price_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         price_columns = [c for c in df.columns.values if re.search("price", c, re.I)]
 
         if len(price_columns) > 1:
+            for col in price_columns:
+                df[col] = df[col].apply(lambda value: self.__str_to_float(value))
+            
             df["Price"] = df[price_columns].min(axis=1)
 
             [df.drop(columns=c, inplace=True) for c in price_columns if c != "Price"]
