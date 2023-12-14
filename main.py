@@ -147,6 +147,11 @@ class Deduplicator:
             lambda value: str(value).strip("$").strip().replace(",", "").replace(" ", "")
         )
 
+        df.loc[df[COLUMNS[-1]].str.contains(r"\d*\s*", regex=True), 
+               COLUMNS[-1]] = df[COLUMNS[-1]].apply(
+            lambda value: re.search(r"\d+.?\d*", str(value)).group()
+        )
+
         df[COLUMNS[-1]] = df[COLUMNS[-1]].astype(float)
 
         df[COLUMNS[-1]] =  df[COLUMNS[-1]].map("${:,.2f}".format)
